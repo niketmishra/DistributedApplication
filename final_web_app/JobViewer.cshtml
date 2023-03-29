@@ -1,0 +1,62 @@
+﻿@using final_web_app.JobService
+
+@{
+    Layout = null;
+}
+
+@{
+    Service1Client client = new Service1Client();
+
+    var jobList = client.ViewJob("ABC");
+
+
+}
+
+<h2>Index</h2>
+<p> <a asp-action="Create">Create New</a> </p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in jobList)
+        {
+            <tr>
+                <td>
+                    @Html.Label(item.jobRoleName);
+                    @Html.Label(item.jobId);
+                    @Html.Label(item.location);
+                    @Html.Label(item.minWorkEx);
+                    @Html.Label(item.skillSet);
+                    @Html.Label(item.vacantPosition);
+
+
+                </td>
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        @foreach (var item in jobList)
+        {
+        }
+    </div>
+</body>
+</html>
